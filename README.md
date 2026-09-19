@@ -12,8 +12,11 @@ keyboard, and restrained rather than decorated.
 
 **Demo video:** [Loom walkthrough](https://www.loom.com/share/46faf7efb89c4080abcac314fa93f4e4)
 
-**Live deployment:** not deployed — the brief marks this as appreciated, not
-required. Run it locally with the setup below.
+**Live deployment:** [mediavault-assessment-bay.vercel.app](https://mediavault-assessment-bay.vercel.app)
+— frontend on Vercel, mock API on Render (`vercel.json` proxies `/api/*`
+to it, so the deployed app talks to a real backend, not a stub). The API
+is on Render's free tier, so the first request after inactivity can take
+20-30 seconds to wake up — that's Render spinning up, not a bug.
 
 ### Setup
 
