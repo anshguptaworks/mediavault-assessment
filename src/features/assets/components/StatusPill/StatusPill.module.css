@@ -1,0 +1,51 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 3px var(--space-2) 3px 3px;
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.steps {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.stepFilled,
+.stepEmpty {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.stepEmpty {
+  opacity: 0.25;
+}
+
+.draft {
+  background: var(--color-status-draft-bg);
+  color: var(--color-status-draft);
+}
+
+.in_review {
+  background: var(--color-status-in-review-bg);
+  color: var(--color-status-in-review);
+}
+
+.approved {
+  background: var(--color-status-approved-bg);
+  color: var(--color-status-approved);
+}
+
+.archived {
+  background: var(--color-status-archived-bg);
+  color: var(--color-status-archived);
+}

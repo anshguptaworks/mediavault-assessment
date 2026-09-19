@@ -1,0 +1,168 @@
+/* Positioned over the grid rather than as a flex sibling that narrows it —
+   on purpose. If opening the panel changed the grid's own width, the
+   virtualized grid's column count would change with it, which reshuffles
+   which row-wrapper each card renders under and can unmount/remount the
+   exact card keyboard focus is supposed to return to. Keeping the grid's
+   box dimensions constant regardless of panel state is what makes focus
+   restoration (and scroll-position preservation) actually reliable instead
+   of working most of the time. */
+.panel {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 340px;
+  max-width: 100%;
+  border-left: 1px solid var(--color-border);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-panel);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.panel:focus {
+  outline: none;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-surface-raised);
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--text-md);
+}
+
+.muted {
+  padding: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+.name {
+  margin: 0;
+  font-size: var(--text-lg);
+  word-break: break-word;
+}
+
+.assetId {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.facts dt {
+  color: var(--color-text-muted);
+}
+
+.facts dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px var(--space-2) 4px 6px;
+  background: var(--color-accent-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--color-accent-strong);
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.tags li svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.sectionLabel {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.statusButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.conflict {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.conflictActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+@media (max-width: 640px) {
+  .panel {
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+  }
+}

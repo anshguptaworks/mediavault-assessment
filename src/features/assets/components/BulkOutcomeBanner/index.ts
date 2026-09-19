@@ -1,0 +1,1 @@
+export { BulkOutcomeBanner } from './BulkOutcomeBanner';

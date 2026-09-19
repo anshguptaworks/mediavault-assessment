@@ -1,0 +1,106 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Two independent rows, not one shared flex line — this is what makes the
+   header's geometry stable. Level 1 (brand + controls) never has to
+   recompute its layout when level 2's content changes width, because they
+   aren't laid out against each other at all. */
+.topbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.controlsRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: var(--space-2);
+  column-gap: var(--space-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-left: auto;
+  min-width: 0;
+}
+
+/* Status + Sort share a tighter gap than the one before Search, so they
+   read as one filter cluster without a visible container around them. */
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* space-between, not margin-left: auto — the count is anchored to the left
+   edge and Clear filters to the right, so either one appearing/disappearing
+   only changes the gap between them, never the other's position. */
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.clearAll {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.clearAll:hover {
+  text-decoration: underline;
+}
+
+.resultCount {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.outcome {
+  padding: var(--space-2) var(--space-4) 0;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .controls {
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: var(--text-md);
+  }
+}

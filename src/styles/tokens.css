@@ -1,0 +1,121 @@
+:root {
+  /* Neutrals */
+  --color-bg: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-border: #e2e2e6;
+  /* Used as the visible border on interactive controls (inputs, selects,
+     checkboxes, buttons) — WCAG 1.4.11 needs 3:1 against the surface behind
+     it for a UI component's boundary to be perceivable. #c9c9d1 only cleared
+     1.65:1; checked with the same contrast script as the status/button pass. */
+  --color-border-strong: #8e8e96;
+  --color-text: #17171a;
+  --color-text-muted: #5b5b64;
+  --color-text-faint: #8a8a93;
+
+  /* Brand / interactive */
+  --color-accent: #2f5fe0;
+  --color-accent-strong: #2347b3;
+  --color-accent-bg: #eaf0ff;
+  --color-focus-ring: #2f5fe0;
+
+  /* Solid-button blue, deliberately theme-invariant: white-on-accent needs a
+     darker blue than reads well as *text* on a dark page background, so a
+     button background and a link/border color can't share one token and
+     both clear 4.5:1 in dark mode. Checked against src/styles tokens with
+     a WCAG contrast script; #2f5fe0 + white = 5.48:1 (light) / 5.48:1 (dark,
+     same value), vs. 3.36:1 using the dark-mode --color-accent. */
+  --color-accent-solid: #2f5fe0;
+  --color-accent-solid-strong: #2347b3;
+
+  /* Status progression — draft to archived reads left-to-right / dim-to-solid.
+     Shape (see StatusPill) carries the meaning too, color is reinforcement only. */
+  --color-status-draft: #6b6b76;
+  --color-status-draft-bg: #eeeef1;
+  --color-status-in-review: #8a5f00;
+  --color-status-in-review-bg: #fff2d6;
+  --color-status-approved: #1c7a4d;
+  --color-status-approved-bg: #e2f6ea;
+  --color-status-archived: #55506b;
+  --color-status-archived-bg: #ebe8f3;
+
+  /* Semantic */
+  --color-danger: #b3261e;
+  --color-danger-bg: #fbe9e7;
+  --color-warning: #8a5a00;
+  --color-warning-bg: #fff2d6;
+  --color-success: #1c7a4d;
+  --color-success-bg: #e2f6ea;
+
+  /* Type */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(20, 20, 30, 0.06);
+  --shadow-md: 0 4px 16px rgba(20, 20, 30, 0.1);
+  --shadow-panel: -8px 0 24px rgba(20, 20, 30, 0.08);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #17171a;
+    --color-surface: #1f1f23;
+    --color-surface-raised: #26262b;
+    --color-border: #34343a;
+    --color-border-strong: #72727a;
+    --color-text: #f0f0f2;
+    --color-text-muted: #b3b3bb;
+    --color-text-faint: #85858e;
+
+    --color-accent: #5c85ff;
+    --color-accent-strong: #7fa0ff;
+    --color-accent-bg: #1c2947;
+    --color-focus-ring: #7fa0ff;
+
+    --color-status-draft: #b3b3bd;
+    --color-status-draft-bg: #2c2c32;
+    --color-status-in-review: #e0b040;
+    --color-status-in-review-bg: #3a2f10;
+    --color-status-approved: #4fce8f;
+    --color-status-approved-bg: #103a24;
+    --color-status-archived: #b6a9e0;
+    --color-status-archived-bg: #2a2440;
+
+    --color-danger: #ff6b60;
+    --color-danger-bg: #3a1613;
+    --color-warning: #e0b040;
+    --color-warning-bg: #3a2f10;
+    --color-success: #4fce8f;
+    --color-success-bg: #103a24;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
+    --shadow-panel: -8px 0 24px rgba(0, 0, 0, 0.4);
+  }
+}

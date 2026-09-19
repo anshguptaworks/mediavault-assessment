@@ -1,0 +1,52 @@
+/* minmax(220px, ...) and the 16px gap must match CARD_MIN_WIDTH_PX /
+   CARD_ROW_GAP_PX in constants/config.ts — useGridColumns measures columns
+   with that same formula so keyboard arrow math lines up with what CSS
+   actually renders. */
+.viewport {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-4);
+}
+
+.spacer {
+  position: relative;
+  width: 100%;
+}
+
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.stateWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: var(--space-4);
+  flex: 1;
+  overflow: hidden;
+  align-content: start;
+}
+
+.inlineError {
+  position: sticky;
+  bottom: 0;
+  padding-top: var(--space-2);
+}
